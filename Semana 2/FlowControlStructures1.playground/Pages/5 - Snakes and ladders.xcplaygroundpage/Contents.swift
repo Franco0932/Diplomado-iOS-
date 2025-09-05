@@ -27,7 +27,7 @@ class Tests: XCTestCase {
         var game = SnakesAndLadders()
         game.play(dieRolls: 5)
         XCTAssertEqual(game.currentSquare, 16)
-        game.play(dieRolls: 2)
+        game.play(dieRolls: 6)
         XCTAssertEqual(game.currentSquare, 7)
         game.play(dieRolls: 4)
         XCTAssertEqual(game.currentSquare, 3)
