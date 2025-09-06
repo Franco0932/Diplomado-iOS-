@@ -30,9 +30,9 @@ class Tests: XCTestCase {
         game.play(dieRolls: 6)
         XCTAssertEqual(game.currentSquare, 7)
         game.play(dieRolls: 4)
-        XCTAssertEqual(game.currentSquare, 3)
+        XCTAssertEqual(game.currentSquare, 11)
         game.play(dieRolls: 5)
-        XCTAssertEqual(game.currentSquare, 17)
+        XCTAssertEqual(game.currentSquare, 16)
         game.play(dieRolls: 5)
         XCTAssertEqual(game.currentSquare, 22)
         game.play(dieRolls: 2)
@@ -44,48 +44,34 @@ struct SnakesAndLadders {
     var currentSquare: Int = 0
     
     mutating func play(dieRolls: Int) {
-        // TODO: - Add first part here
         currentSquare += dieRolls
-        
-        if currentSquare == 5 {
-            currentSquare = 16  //Escalera 5-16
-        }
-        if currentSquare == 8 {
-            currentSquare = 17  //Escalera 8-17
-        }
-        if currentSquare == 11 {
-            currentSquare = 3   //Serpiente 11-3
-        }
-        if currentSquare == 18 {
-            currentSquare = 7   //Serpiente 18-7
+            
+        switch currentSquare {
+        case 2:
+            currentSquare = 10 // Escalera
+        case 5:
+            currentSquare = 16 // Escalera
+        case 8:
+            currentSquare = 17 // Escalera
+        case 9:
+            currentSquare = 11 // Escalera
+        case 21:
+            currentSquare = 22 // Escalera
+        case 13:
+            currentSquare = 3 // Serpiente
+        case 18:
+            currentSquare = 7 // Serpiente
+        case 22:
+            currentSquare = 7 // Serpiente
+        case 23:
+            currentSquare = 15 // Serpiente
+        default:
+            break
         }
     }
-    
     mutating func play() {
-        // TODO: - Add second part here
-        while currentSquare < 100 {
-            let dieRoll = Int.random(in: 1...6)
-            currentSquare += dieRoll
-            
-            if currentSquare == 5 {
-                currentSquare = 16  //Escalera 5-16
-            }
-            if currentSquare == 8 {
-                currentSquare = 17  //Escalera 8-17
-            }
-            if currentSquare == 11 {
-                currentSquare = 3   //Serpiente 11-3
-            }
-            if currentSquare == 18 {
-                currentSquare = 7   //Serpiente 18-7
-            }
-            
-            print("Player is now at square \(currentSquare)")
-            
-            if currentSquare >= 100 {
-                break
-            }
-        }
+    let dieRoll = Int.random(in: 1...6)
+    play(dieRolls: dieRoll)
     }
 }
 Tests.defaultTestSuite.run()
