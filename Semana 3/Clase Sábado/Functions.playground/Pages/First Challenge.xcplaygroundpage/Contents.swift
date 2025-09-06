@@ -19,15 +19,18 @@ class Tests: XCTestCase {
         XCTAssertEqual(greetByMiddleName(fromFullName: (first: "Alois", middle: "Rumpelstiltskin", last: "Chaz")), "Hey, Alois R. Chaz")
     }
     
-    private func greetByMiddleName(fromFullName name: (first: String, middle: String?, last: String)) {
+    private func greetByMiddleName(fromFullName name: (first: String, middle: String?, last: String)) -> String {
         guard let middleName = name.middle else {
-            print("Hey there!")
-            return
+            return "Hey there!"
         }
-        print("Hey, \(middleName)")
+        if middleName.count > 10 {
+            let initial = middleName.prefix(1)
+            return "Hey, \(name.first) \(initial). \(name.last)"
+        } else {
+            return "Hey, \(name.first) \(middleName) \(name.last)"
+        }
     }
 }
-
 Tests.defaultTestSuite.run()
 
 //: [Next](@next)
