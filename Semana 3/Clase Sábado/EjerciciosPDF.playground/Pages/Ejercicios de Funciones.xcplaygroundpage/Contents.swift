@@ -36,7 +36,7 @@ func esPrimo(_ numeroP: Int) -> Bool {
     return true
 }
 
-func primosHasta(_ limite: Int) -> [Int] {
+func primosHasta(_ limite: Int) -> Int {
     var listaPrimos: [Int] = []
     for numeroActual in stride(from: 2, through: limite, by: 1) {
         if esPrimo(numeroActual) {
@@ -57,7 +57,7 @@ palíndromo, ignorando espacios y mayúsculas.
 Ejemplo: "Anita lava la tina" → true.
 ⸻
 */
-func esFrasePalindromo(){
+func esFrasePalindromo(_ frase: String) -> Bool {
     
 }
 
