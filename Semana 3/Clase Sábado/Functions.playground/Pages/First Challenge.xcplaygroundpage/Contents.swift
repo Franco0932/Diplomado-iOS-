@@ -24,9 +24,8 @@ class Tests: XCTestCase {
             return "Hey there!"
         }
         if middleName.count > 10 {
-            let initial = middleName.prefix(1)
-            return "Hey, \(name.first) \(initial). \(name.last)"
-        } else {
+            return "Hey, \(name.first) \(middleName.prefix(1)). \(name.last)"
+        }else{
             return "Hey, \(name.first) \(middleName) \(name.last)"
         }
     }

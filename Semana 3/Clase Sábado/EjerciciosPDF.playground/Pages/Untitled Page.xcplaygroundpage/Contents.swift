@@ -13,7 +13,7 @@ func factorial(factorialNumero: Int) -> Int {
         return factorialNumero * factorial(factorialNumero:factorialNumero-1)
        }
     }
-    var numero = 3
+    var numero = 7
     var fact = factorial(factorialNumero: numero)
     print("El factorial de \(numero) es: \(fact)")
 /*
@@ -36,10 +36,12 @@ func esPrimo(_ numeroP: Int) -> Bool {
 }
 
 func primosHasta(_ limite: Int) -> [Int] {
-    return (2...limite).filter { esPrimo($0) }
+    return (2...limite).filter {
+        esPrimo($0)
+    }
 }
 
-print("Primos hasta 20:", primosHasta(20))
+print("Primos hasta 10:", primosHasta(10))
 
 /*
 // MARK: Ejercicio 3 – Palíndromo con frases
@@ -48,6 +50,9 @@ palíndromo, ignorando espacios y mayúsculas.
 Ejemplo: "Anita lava la tina" → true.
 ⸻
 */
+func esFrasePalindromo(){
+    
+}
 
 /*
 // MARK: Ejercicio 4 – Conteo de vocales
@@ -55,6 +60,9 @@ Crea una función contarVocales(_:) que reciba un String y devuelva un diccionar
 número de veces que aparece cada vocal (a, e, i, o, u).
 ⸻
 */
+func contarVocales(){
+    
+}
 
 /*
 // MARK: Ejercicio 5 – Ordenar lista de números (algoritmo propio)
@@ -62,13 +70,19 @@ Escribe una función ordenarNumeros(_:) que reciba un arreglo de enteros y lo de
 ordenado de menor a mayor sin usar sorted().
 ⸻
 */
- 
+func ordenarNumeros(){
+    
+}
+
 /*
 // MARK: Ejercicio 6 – Fibonacci
 Crea una función fibonacci(_:) que devuelva el n-ésimo número de la secuencia de Fibonacci.
 Ejemplo: fibonacci(6) → 8.
 ⸻
 */
+func fibonacci(){
+    
+}
  
 /*
 // MARK: Ejercicio 7 – Suma de dígitos
@@ -77,6 +91,9 @@ dígitos.
 Ejemplo: sumaDigitos(348) → 15.
 ⸻
 */
+func sumaDigitos(){
+    
+}
 
 /*
 // MARK: Ejercicio 8 – Máximo común divisor (MCD)
@@ -84,7 +101,10 @@ Crea una función mcd(_:_:) que reciba dos enteros y devuelva su máximo común 
 usando el algoritmo de Euclides.
 ⸻
 */
- 
+func mcd(){
+    
+}
+
 /*
 // MARK: Ejercicio 9 – Número perfecto
 Escribe una función esPerfecto(_:) que devuelva true si un número es perfecto.
@@ -92,10 +112,16 @@ Escribe una función esPerfecto(_:) que devuelva true si un número es perfecto.
 1 + 2 + 4 + 7 + 14 = 28).
 ⸻
 */
- 
+func esPerfecto(){
+    
+}
+
 /*
 // MARK: Ejercicio 10 – Conversor de bases
 Crea una función convertirABase(_ numero: Int, base: Int) que convierta un número decimal a
 otra base (2 = binario, 8 = octal, 16 = hexadecimal).
 Ejemplo: convertirABase(10, base: 2) → "1010".
 */
+func convertirABase(){
+    
+}
