@@ -48,23 +48,23 @@ struct SnakesAndLadders {
             
         switch currentSquare {
         case 2:
-            currentSquare = 10 // Escalera
+            currentSquare = 10 //Escalera
         case 5:
-            currentSquare = 16 // Escalera
+            currentSquare = 16 //Escalera
         case 8:
-            currentSquare = 17 // Escalera
+            currentSquare = 17 //Escalera
         case 9:
-            currentSquare = 11 // Escalera
+            currentSquare = 11 //Escalera
         case 21:
-            currentSquare = 22 // Escalera
+            currentSquare = 22 //Escalera
         case 13:
-            currentSquare = 3 // Serpiente
+            currentSquare = 3 //Serpiente
         case 18:
-            currentSquare = 7 // Serpiente
+            currentSquare = 7 //Serpiente
         case 22:
-            currentSquare = 7 // Serpiente
+            currentSquare = 7 //Serpiente
         case 23:
-            currentSquare = 15 // Serpiente
+            currentSquare = 15 //Serpiente
         default:
             break
         }
