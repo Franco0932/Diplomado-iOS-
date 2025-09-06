@@ -24,14 +24,12 @@ class Tests: XCTestCase {
     
     // TODO: - Add your code here
     func siftBeans (fromGroceryList: [String]) -> (beans: [String], otherGroceries: [String]) {
-        var beans = [String]()
-        var otherGroceries = [String]()
-        fromGroceryList.forEach { (groceryList) in
-            groceryList.hasSuffix("beans") ? beans.append(groceryList) : otherGroceries.append(groceryList)
+        return (
+            fromGroceryList.filter { $0.hasSuffix("beans") },
+            fromGroceryList.filter { !$0.hasSuffix("beans") }
+            )
         }
-        return (beans , otherGroceries)
     }
-}
 Tests.defaultTestSuite.run()
 
 //: [Next](@next)
