@@ -58,8 +58,14 @@ Ejemplo: "Anita lava la tina" → true.
 ⸻
 */
 func esFrasePalindromo(_ frase: String) -> Bool {
-    
+    let filtrada = frase.lowercased().filter { caracter in
+        return caracter.isLetter
+    }
+    return filtrada == String(filtrada.reversed())
 }
+
+let frasePrueba = "Anita lava la tina"
+print("¿'\(frasePrueba)' es palíndromo?: \(esFrasePalindromo(frasePrueba))")
 
 /*
 // MARK: Ejercicio 4 – Conteo de vocales
@@ -67,9 +73,18 @@ Crea una función contarVocales(_:) que reciba un String y devuelva un diccionar
 número de veces que aparece cada vocal (a, e, i, o, u).
 ⸻
 */
-func contarVocales(){
-    
+func contarVocales(_ texto: String) -> [Character: Int] {
+    let vocales: Set<Character> = ["a", "e", "i", "o", "u"]
+    var conteo: [Character: Int] = [:]
+    for char in texto.lowercased() {
+        if vocales.contains(char) {
+            conteo[char, default: 0] += 1
+        }
+    }
+    return conteo
 }
+let textoVocales = "Diplomado de Aplicaciones Moviles en iOS"
+print("Conteo de vocales en '\(textoVocales)': \(contarVocales(textoVocales))")
 
 /*
 // MARK: Ejercicio 5 – Ordenar lista de números (algoritmo propio)
