@@ -6,20 +6,57 @@ Agrega un método que calcule el área y otro que calcule el perímetro.
 Crea un objeto y muestra ambos resultados.
 ⸻
 */
+struct Rectangulo {
+    var ancho: Double
+    var alto: Double
 
+    func area() -> Double {
+        return ancho * alto
+    }
+
+    func perimetro() -> Double {
+        return 2 * (ancho + alto)
+    }
+}
+
+let miRectangulo = Rectangulo(ancho: 5.0, alto: 3.0)
+print("Área: \(miRectangulo.area())")
+print("Perímetro: \(miRectangulo.perimetro())") 
 
 // MARK: Ejercicio 2
 //Crea una estructura Alumno con propiedades nombre (String) y notas ([Int]).
 //Agrega una función que devuelva la nota promedio del alumno.
 //Crea un alumno y muestra su promedio.
 //⸻
+struct Alumno {
+    var nombre: String
+    var notas: [Int]
 
+    func promedio() -> Double {
+        guard !notas.isEmpty else { return 0 }
+        return Double(notas.reduce(0, +)) / Double(notas.count)
+    }
+}
+
+let alumno1 = Alumno(nombre: "María", notas: [8, 9, 10, 7])
+print("Promedio de \(alumno1.nombre): \(alumno1.promedio())")
 
 // MARK: Ejercicio 3
 //Crea una estructura Inventario que tenga un diccionario de productos ([String: Int]).
 //Agrega una función que devuelva el producto con mayor stock.
 //⸻
+struct Inventario {
+    var productos: [String: Int]
 
+    func productoMayorStock() -> String? {
+        return productos.max { a, b in a.value < b.value }?.key
+    }
+}
+
+let inventario = Inventario(productos: ["Manzana": 10, "Guayaba": 11 ,"Platano": 25, "Naranja": 15])
+if let mayor = inventario.productoMayorStock() {
+    print("Producto con mayor stock: \(mayor)")
+}
 
 // MARK: Ejercicio 4
 //Crea una estructura Club con propiedad miembros: Set<String>.
@@ -28,12 +65,35 @@ Crea un objeto y muestra ambos resultados.
 //2. Eliminar un miembro.
 //3. Verificar si alguien pertenece al club.
 //⸻
+struct club{
+  var miembros: Set<String> = []
+  
+  mutating func agregarMiembro(_ nombre: String) {
+        miembros.insert(nombre)
+    }
+
+  mutating func eliminarMiembro(_ nombre: String) {
+        miembros.remove(nombre)
+    }
+
+  func perteneceAlClub(_ nombre: String) -> Bool {
+        return miembros.contains(nombre)
+    }
+}
+
+var verMiembros = miembros()
+verMiembros.agregarMiembro("Franco")
+verMiembros.agregarMiembro("Vanesa")
+print("¿Vane pertenece al club?: \(verMiembros.perteneceAlClub("Vanesa"))")
+verMiembros.eliminarMiembro("Franco")
+print("¿Franco pertenece al club?: \(verMiembros.perteneceAlClub("Franco"))")
 
 
 // MARK: Ejercicio 5
 //Crea una estructura Persona con propiedades nombre (String) y edad (Int).
 //Agrega una función que reciba otra persona y devuelva la persona mayor.
 //⸻
+
 
 
 // MARK: Ejercicio 6
