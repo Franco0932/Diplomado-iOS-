@@ -92,9 +92,19 @@ Escribe una función ordenarNumeros(_:) que reciba un arreglo de enteros y lo de
 ordenado de menor a mayor sin usar sorted().
 ⸻
 */
-func ordenarNumeros(){
-    
+func ordenarNumeros(_ lista: [Int]) -> [Int] {
+    var arr = lista
+    for i in 0..<arr.count {
+        for j in i+1..<arr.count {
+            if arr[j] < arr[i] {
+                arr.swapAt(i, j)
+            }
+        }
+    }
+    return arr
 }
+let desordenados = [5, 2, 9, 1, 3]
+print("Lista ordenada: \(ordenarNumeros(desordenados))")
 
 /*
 // MARK: Ejercicio 6 – Fibonacci
@@ -102,9 +112,18 @@ Crea una función fibonacci(_:) que devuelva el n-ésimo número de la secuencia
 Ejemplo: fibonacci(6) → 8.
 ⸻
 */
-func fibonacci(){
-    
+func fibonacci(_ n: Int) -> Int {
+    if n <= 0 { return 0 }
+    if n == 1 { return 1 }
+    var a = 0, b = 1
+    for _ in 2...n {
+        let temp = a + b
+        a = b
+        b = temp
+    }
+    return b
 }
+print("El 6to número de Fibonacci es: \(fibonacci(6))")
  
 /*
 // MARK: Ejercicio 7 – Suma de dígitos
@@ -113,9 +132,10 @@ dígitos.
 Ejemplo: sumaDigitos(348) → 15.
 ⸻
 */
-func sumaDigitos(){
-    
+func sumaDigitos(_ numero: Int) -> Int {
+    return String(numero).compactMap { Int(String($0)) }.reduce(0, +)
 }
+print("La suma de los dígitos de 348 es: \(sumaDigitos(348))")
 
 /*
 // MARK: Ejercicio 8 – Máximo común divisor (MCD)
@@ -123,9 +143,16 @@ Crea una función mcd(_:_:) que reciba dos enteros y devuelva su máximo común 
 usando el algoritmo de Euclides.
 ⸻
 */
-func mcd(){
-    
+func mcd(_ a: Int, _ b: Int) -> Int {
+    var x = a, y = b
+    while y != 0 {
+        let temp = y
+        y = x % y
+        x = temp
+    }
+    return x
 }
+print("El MCD de 48 y 18 es: \(mcd(48, 18))")
 
 /*
 // MARK: Ejercicio 9 – Número perfecto
@@ -134,9 +161,17 @@ Escribe una función esPerfecto(_:) que devuelva true si un número es perfecto.
 1 + 2 + 4 + 7 + 14 = 28).
 ⸻
 */
-func esPerfecto(){
-    
+func esPerfecto(_ numero: Int) -> Bool {
+    if numero < 2 { return false }
+    var suma = 0
+    for i in 1..<numero {
+        if numero % i == 0 {
+            suma += i
+        }
+    }
+    return suma == numero
 }
+print("¿28 es un número perfecto?: \(esPerfecto(28))")
 
 /*
 // MARK: Ejercicio 10 – Conversor de bases
@@ -144,6 +179,16 @@ Crea una función convertirABase(_ numero: Int, base: Int) que convierta un núm
 otra base (2 = binario, 8 = octal, 16 = hexadecimal).
 Ejemplo: convertirABase(10, base: 2) → "1010".
 */
-func convertirABase(){
-    
+func convertirABase(_ numero: Int, base: Int) -> String {
+    let caracteres = Array("0123456789ABCDEF")
+    var n = numero
+    var resultado = ""
+    repeat {
+        resultado = String(caracteres[n % base]) + resultado
+        n /= base
+    } while n > 0
+    return resultado
 }
+print("10 en binario: \(convertirABase(10, base: 2))")
+print("10 en octal: \(convertirABase(10, base: 8))")
+print("10 en hexadecimal: \(convertirABase(10, base: 16))")
