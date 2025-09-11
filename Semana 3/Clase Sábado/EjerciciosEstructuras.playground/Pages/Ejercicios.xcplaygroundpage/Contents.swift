@@ -38,7 +38,7 @@ struct Alumno {
     }
 }
 
-let alumno1 = Alumno(nombre: "María", notas: [8, 9, 10, 7])
+let alumno1 = Alumno(nombre: "Franco", notas: [8, 9, 10, 7])
 print("Promedio de \(alumno1.nombre): \(alumno1.promedio())")
 
 // MARK: Ejercicio 3
@@ -107,7 +107,19 @@ print("¿Franco pertenece al club?: \(verMiembros.perteneceAlClub("Franco"))")
 //Crea un diccionario [String: Curso] y escribe una función que devuelva el curso con más
 //alumnos.
 //⸻
+struct Curso {
+    var nombre: String
+    var alumnos: [Int]
 
+    func curso() -> String {
+       return alumnos.max { a, b in a.value < b.value }?.key
+    }
+}
+
+let cursos = Curso(alumnos: ["MAtematicas": 35, "Ciencias": 32 ,"Historia": 25, "Deportes": 40])
+if let mayor2 = cursos.cursoConMayorCant() {
+    print("El curso con mayor cantidad de alumnos es: \(mayor2)")
+}
 
 // MARK: Ejercicio 8
 //Crea una estructura Punto con x y y (Double).
