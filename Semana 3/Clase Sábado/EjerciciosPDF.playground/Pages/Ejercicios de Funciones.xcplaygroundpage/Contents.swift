@@ -23,32 +23,32 @@ Después, crea otra función primosHasta(_:) que devuelva todos los números pri
 límite dado.
 ⸻
 */
-func esPrimo(_ numeroP: Int) -> Bool {
-    if (numeroP == 0 || numeroP == 1) {
-        return false
-    }
-    let limite = Int(sqrt(Double(numeroP)))
-    for i in 2...limite {
-        if numeroP % i == 0 {
-            return false
-        }
-    }
-    return true
-}
-
-func primosHasta(_ limite: Int) -> Int {
-    var listaPrimos: [Int] = []
-    for numeroActual in stride(from: 2, through: limite, by: 1) {
-        if esPrimo(numeroActual) {
-            listaPrimos.append(numeroActual)
-        }
-    }
-    return listaPrimos
-}
-
-let limite = 20
-let numerosPrimos = primosHasta(limite) //Swift/arm64-apple-ios-simulator.swiftinterface:6140: Fatal error: Range requires lowerBound <= upperBound - error: Execution was interrupted, reason: EXC_BREAKPOINT (code=1, subcode=0x194c9e7a8). The process has been left at the point where it was interrupted, use "thread return -x" to return to the state before expression evaluation.
-print("Los números primos hasta \(limite) son: \(numerosPrimos)")
+//func esPrimo(_ numeroP: Int) -> Bool {
+//    if (numeroP == 0 || numeroP == 1) {
+//        return false
+//    }
+//    let limite = Int(sqrt(Double(numeroP)))
+//    for i in 2...limite {
+//        if numeroP % i == 0 {
+//            return false
+//        }
+//    }
+//    return true
+//}
+//
+//func primosHasta(_ limite: Int) -> Int {
+//    var listaPrimos: [Int] = []
+//    for numeroActual in stride(from: 2, through: limite, by: 1) {
+//        if esPrimo(numeroActual) {
+//            listaPrimos.append(numeroActual)
+//        }
+//    }
+//    return listaPrimos
+//}
+//
+//let limite = 20
+//let numerosPrimos = primosHasta(limite) //Swift/arm64-apple-ios-simulator.swiftinterface:6140: Fatal error: Range requires lowerBound <= upperBound - error: Execution was interrupted, reason: EXC_BREAKPOINT (code=1, subcode=0x194c9e7a8). The process has been left at the point where it was interrupted, use "thread return -x" to return to the state before expression evaluation.
+//print("Los números primos hasta \(limite) son: \(numerosPrimos)")
 
 /*
 // MARK: Ejercicio 3 – Palíndromo con frases
@@ -65,7 +65,6 @@ func esFrasePalindromo(_ frase: String) -> Bool {
 }
 
 let frasePrueba = "Anita lava la tina"
-print("¿'\(frasePrueba)' es palíndromo?: \(esFrasePalindromo(frasePrueba))")
 
 /*
 // MARK: Ejercicio 4 – Conteo de vocales

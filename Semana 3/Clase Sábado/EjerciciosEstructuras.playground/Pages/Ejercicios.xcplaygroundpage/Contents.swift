@@ -81,7 +81,7 @@ struct club{
     }
 }
 
-var verMiembros = miembros()
+var verMiembros = club()
 verMiembros.agregarMiembro("Franco")
 verMiembros.agregarMiembro("Vanesa")
 print("Vane pertenece al club?: \(verMiembros.perteneceAlClub("Vanesa"))")
@@ -94,23 +94,31 @@ print("Franco pertenece al club?: \(verMiembros.perteneceAlClub("Franco"))")
 //Agrega una función que reciba otra persona y devuelva la persona mayor.
 //⸻
 
+struct Persona {
+    var gente: [String: Int]
 
+    func personaMayor() -> String? {
+        return gente.max { c, d in c.value < d.value }?.key
+    }
+}
+
+let personas = Persona(gente: ["Franco": 24, "Alan": 21 ,"Vane": 25, "Jorge": 27])
+if let mayor3 = personas.personaMayor() {
+    print("La 'persona con más edad es: \(mayor3)")
+}
 
 // MARK: Ejercicio 6
 //Crea una estructura Producto con nombre (String) y precio (Double).
 //Crea un array con cinco productos y una función que devuelva el producto más caro.
 //⸻
 struct Producto {
-    var productos: [String: Double]
-
-    func productoMayorStock() -> String? {
-        return productos.max { a, b in a.value < b.value }?.key
-    }
-}
-
-let inventario = Inventario(productos: ["Manzana": 10, "Guayaba": 11 ,"Platano": 25, "Naranja": 15])
-if let mayor = inventario.productoMayorStock() {
-    print("Producto con mayor stock: \(mayor)")
+    let nombre2: String
+    let precio: Double
+    
+    //func productoCaro() -> Double? {
+        //return precio { e, f in e.value < f.value }?.key
+    //}
+    
 }
 
 // MARK: Ejercicio 7
@@ -118,19 +126,7 @@ if let mayor = inventario.productoMayorStock() {
 //Crea un diccionario [String: Curso] y escribe una función que devuelva el curso con más
 //alumnos.
 //⸻
-struct Curso {
-    var nombre: String
-    var alumnos: [Int]
 
-    func curso() -> String {
-       return alumnos.max { a, b in a.value < b.value }?.key
-    }
-}
-
-let cursos = Curso(alumnos: ["MAtematicas": 35, "Ciencias": 32 ,"Historia": 25, "Deportes": 40])
-if let mayor2 = cursos.cursoConMayorCant() {
-    print("El curso con mayor cantidad de alumnos es: \(mayor2)")
-}
 
 // MARK: Ejercicio 8
 //Crea una estructura Punto con x y y (Double).
@@ -159,8 +155,8 @@ struct Materia {
     }
 }
 
-let materia = Materia(nombre: "Matemáticas", calificaciones: [8, 9, 7, 9])
-let promedioMateria = materia.obtenerPromedio()
+let materia = Materia(nombre: "Matematicas", calificaciones: [8, 9, 7, 9])
+let promedioMateria = materia.Promedio()
 print("La materia es \(promedioMateria.nombre) y su promedio es \(promedioMateria.promedio)")
 
 // MARK: Ejercicio 10
@@ -170,29 +166,3 @@ print("La materia es \(promedioMateria.nombre) y su promedio es \(promedioMateri
 //2. Eliminar un producto por nombre.
 //3. Devolver el precio total de todos los productos.
 
-struct Tienda{
-  var productos: Set<String> = []
-  
-  mutating func agregarProducto(_ nombreProducto: String) {
-        productos.insert(nombreProducto)
-    }
-
-  mutating func eliminarProducto(_ nombreProducto: String) {
-        productos.remove(nombreProducto)
-    }
-
-  func precioProductos(_ precioProducto: Int) -> Int {
-        return productos.contains(precioProducto)
-    }
-}
-let verProductos = [
-    ["nombre": "Manzana", "precio": 1.50],
-    ["nombre": "Banana", "precio": 0.75],
-    ["nombre": "Naranja", "precio": 1.00]
-]
-var verProductos = productos()
-verProductos.agregarProducto("")
-verProductos.agregarMiembro("")
-print("Precio de productos": \(verProductos.precioProductos(""))")
-verProductos.eliminarProducto("")
-print("Precio de productos: \(verProductos.precioProductos(""))")
