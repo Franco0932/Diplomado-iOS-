@@ -48,7 +48,8 @@ class Coche {
         print("El coche \(marca) \(modelo) está encendido")
     }
     func apagar() {
-        print("El coche \(marca) \(modelo) está apagado")   
+        print("El coche \(marca) \(modelo) está apagado")
+    }
 }
 
 let coche1 = Coche(marca: "Ford", modelo: "Fiesta")
@@ -112,8 +113,8 @@ class Estudiante {
     }
 }
 
-let estudiante1 = Estudiante(nombre: "Franco", calificaciones: 9, 9, 10, 8, 6)
-let estudiante2 = Estudiante(nombre: "Vane", calificaciones: 10, 10, 9, 9, 8)
+let estudiante1 = Estudiante(nombre: "Franco", calificaciones: 9)
+let estudiante2 = Estudiante(nombre: "Vane", calificaciones: 10)
 estudiante1.promedio()
 estudiante2.promedio()
 

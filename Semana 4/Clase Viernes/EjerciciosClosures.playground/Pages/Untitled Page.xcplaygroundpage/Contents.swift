@@ -94,15 +94,15 @@ func compararStrings(cadena1: String, cadena2: String, comparar: (String, String
     }
 }
 
-let comparar = compararStrings(cadena1: "Hola", cadena2: "Hola", comparar: { (a, b) in
+let comparar: () = compararStrings(cadena1: "Hola", cadena2: "Hola", comparar: { (a, b) in
     return a == b
 })  
-let comparar2 = compararStrings(cadena1: "Swift es Genial", cadena2: "Swift is Great!", comparar: { (a, b) in
+let comparar2: () = compararStrings(cadena1: "Swift es Genial", cadena2: "Swift is Great!", comparar: { (a, b) in
     return a.count == b.count
 })
-let comparar3 = compararStrings(cadena1: "iOS 26", cadena2: "macOS 26", comparar: { (a, b) in
+let comparar3: () = compararStrings(cadena1: "iOS 26", cadena2: "macOS 26", comparar: { (a, b) in
     return a.count > b.count
-
+})
 //// MARK: Ejercicio 5
 //Crea una función transformarTexto que reciba un String y un closure.
 //El closure debe transformar el texto (ejemplo: pasarlo a mayúsculas, agregarle un
@@ -127,11 +127,6 @@ print(textoTransformado)
 //filter).
 //⸻
 
-func filtrarNumeros(){
-    
-}
-
-
 
 //// MARK: Ejercicio 7
 //Crea una función modificarArreglo que reciba un arreglo de enteros y un closure que
@@ -139,9 +134,6 @@ func filtrarNumeros(){
 //Devuelve el nuevo arreglo. (Investiga como usar map).
 //⸻
 
-func modificarArreglo(){
-    
-}
 
 //// MARK: Ejercicio 8
 //Escribe una función buscarElemento que reciba un arreglo de enteros, un número a
@@ -149,15 +141,8 @@ func modificarArreglo(){
 //Devuelve true si encuentra el número, false en caso contrario.
 //⸻
 
-func buscarElemento(){
-    
-}
 
 //// MARK: Ejercicio 9
 //Crea una función ordenarArreglo que reciba un arreglo de enteros y un closure que
 //defina el criterio de ordenamiento (ejemplo: ascendente, descendente).
 //No uses sorted, implementa el algoritmo con ciclos (for / while).
-
-func ordenarArreglo(){
-    
-}
