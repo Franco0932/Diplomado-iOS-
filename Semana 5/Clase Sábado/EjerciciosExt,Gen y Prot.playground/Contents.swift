@@ -208,6 +208,10 @@ print("-------------------------------------------------------\n")
 //After you fixed the crashing bug in the first challenge, the table rows and columns were likely misaligned.
 //Fix your solution to correctly align the table rows and columns. Verify that your solution does not crash with values longer than their column labels.
 //
+
+//Esta en el ejercicio 1
+
+
 //-----------------------------------------------------------------------------------------
 //
 
@@ -270,7 +274,7 @@ extension Array {
 //Also give `Int` a property of that type to correctly report whether an integer is even or odd.
 //
 //```swift
-let myInt = 2
+let myInt = 4
 print(myInt.evenOrOdd) // even
 print(7.evenOrOdd) // odd
 
@@ -311,11 +315,12 @@ extension Int.ImpPar: CustomStringConvertible {
     var description: String {
         switch self {
         case .even: return "Hey, I'm an even number"
-        case .odd: return "Hey, I'm an even number"
+        case .odd: return "Oh no, I'm an odd number"
         }
     }
 }
 
+print("-------------------------------------------------------\n")
 
 //
 //## Generic Challenges
