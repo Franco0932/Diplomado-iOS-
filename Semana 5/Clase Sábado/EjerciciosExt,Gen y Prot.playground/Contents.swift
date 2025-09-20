@@ -81,7 +81,7 @@ struct Department: TabularDataSource {
 }
 
 var department = Department(name: "Engineering")
-department.add(Person(name: "Eva", age: 10, yearsOfExperience: 6))
+department.add(Person(name: "Eva", age: 1000, yearsOfExperience: 6))
 department.add(Person(name: "Salem", age: 40, yearsOfExperience: 8))
 department.add(Person(name: "Andres", age: 50, yearsOfExperience: 10))
 
@@ -202,6 +202,41 @@ struct BookCollection: TabularDataSource {
     }
 }
 
+var books = BookCollection(name: "Engineering")
+department.add(Person(name: "Eva", age: 1000, yearsOfExperience: 6))
+department.add(Person(name: "Salem", age: 40, yearsOfExperience: 8))
+department.add(Person(name: "Andres", age: 50, yearsOfExperience: 10))
+
+func printTable2(_ dataSource: TabularDataSource) {
+    var headerRow = "|"
+    var columnWidths = [Int]()
+    
+    for columnIndex in 0..<dataSource.numberOfColumns {
+        let columnLabel = dataSource.label(forColumn: columnIndex)
+        let columnHeader = " \(columnLabel) |"
+        headerRow += columnHeader
+        
+        columnWidths.append(columnHeader.count)
+    }
+    
+    print(headerRow)
+    
+    for rowIndex in 0..<dataSource.numberOfRow {
+        var output = "|"
+        for rowColumnIndex in 0..<dataSource.numberOfColumns {
+            let item = dataSource.itemForRow(row: rowIndex, column: rowColumnIndex)
+            let paddingNeeded = columnWidths[rowColumnIndex] - item.count - 2
+            let padding = repeatElement(" ", count: paddingNeeded).joined(separator: "")
+            
+            output += " \(item)\(padding)|"
+        }
+        print(output)
+    }
+}
+
+
+
+printTable(department)
 //
 //### Third Challenge (optional)
 //After you fixed the crashing bug in the first challenge, the table rows and columns were likely misaligned.
