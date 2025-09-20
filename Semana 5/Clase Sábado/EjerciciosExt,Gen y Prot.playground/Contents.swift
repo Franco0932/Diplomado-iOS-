@@ -272,7 +272,7 @@ extension Array {
 //```swift
 let myInt = 2
 print(myInt.evenOrOdd) // even
-print(7.evenOrOdd, "\n") // odd
+print(7.evenOrOdd) // odd
 
 //extension Int {
 //    enum ImpPar {
@@ -342,18 +342,53 @@ struct Pair<First, Second>: CustomStringConvertible {
     var description: String { "Pair: \(first), \(second)" }
 }
 
+print("----------------------------------------\n")
+
 
 //### Second Challenge
 //Add a `filter(_:)` method to your `Stack` structure. It should take a single argument, a closure that takes an `Element` and returns a `Bool`, and return a new `Stack<Element>` that contains any elements for which the closure returns true.
 //
+struct Stack<Element>: CustomStringConvertible {
+    private var storage: [Element] = []
 
+    init() {}
+    init(_ items: [Element]) { self.storage = items }
+
+    mutating func push(_ item: Element) { storage.append(item) }
+    @discardableResult mutating func pop() -> Element? { storage.popLast() }
+
+    func filter(_ include: (Element) -> Bool) -> Stack<Element> {
+        var result = Stack<Element>()
+        for item in storage where include(item) {
+            result.push(item)
+        }
+        return result
+    }
+
+    var description: String { "Stack(\(storage))" }
+}
+
+var s = Stack([1, 2, 3, 4, 5, 6])
+let pares = s.filter { $0 % 2 == 0 }
+print(pares)
+print("----------------------------------------\n")
 
 //### Third Challenge
 //Write a generic function called `findAll(_:_:)` that takes an array of any type `T` that conforms to the `Equatable` protocol and a single element (also of type `T`).
 //`findAll(_:_:)` should return an array of integers corresponding to every location where the element was found in the array. For example, `findAll([5,3,7,3,9], 3)` should return `[1,3]` because the item 3 exists at indices 1 and 3 in the array. Try your function with both integers and strings.
 //
 
+func findAll<T: Equatable>(_ array: [T], _ value: T) -> [Int] {
+    var indices: [Int] = []
+    for (index, element) in array.enumerated() {
+        if element == value {
+            indices.append(index)
+        }
+    }
+    return indices
+}
 
+print(findAll([5, 3, 7, 3, 9], 3))
 
 //### Fourth Challenge
 //Write an extension for the `Dictionary` type that adds a method `mapValuesToArray(_:)`. This method should take a closure that transforms the values of the dictionary and return an array of the transformed values.
