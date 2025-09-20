@@ -238,35 +238,35 @@ jugador.mover(.izquierda)
 //devuelva todos los libros de un autor específico.
 //⸻
 
-class Libro {
-    var titulo: String
-    var autor: String
-
-    init(titulo: String, autor: String) {
-        self.titulo = titulo
-        self.autor = autor
-    }
-}
-
-class Biblioteca {
-    var libros: [Libro] = []
-
-    func agregarLibro(_ libro: Libro) {
-        libros.append(libro)
-    }
-
-    func buscarPorAutor(_ autor: String) -> [Libro] {
-        return libros.filter { $0.autor == $1.autor }
-    }
-}
-
-let biblioteca = Biblioteca()
-let libro1 = Libro(titulo: "", autor: "")
-let libro2 = Libro(titulo: "", autor: "")
-let libro3 = Libro(titulo: "", autor: "")
-biblioteca.agregarLibro(libro1)
-biblioteca.agregarLibro(libro2)
-biblioteca.agregarLibro(libro3) 
+//class Libro {
+//    var titulo: String
+//    var autor: String
+//
+//    init(titulo: String, autor: String) {
+//        self.titulo = titulo
+//        self.autor = autor
+//    }
+//}
+//
+//class Biblioteca {
+//    var libros: [Libro] = []
+//
+//    func agregarLibro(_ libro: Libro) {
+//        libros.append(libro)
+//    }
+//
+//    func buscarPorAutor(_ autor: String) -> [Libro] {
+//        return libros.filter { $0.autor == $1.autor }
+//    }
+//}
+//
+//let biblioteca = Biblioteca()
+//let libro1 = Libro(titulo: "dfd", autor: "df")
+//let libro2 = Libro(titulo: "df", autor: "dfd")
+//let libro3 = Libro(titulo: "dd", autor: "dffd")
+//biblioteca.agregarLibro(libro1)
+//biblioteca.agregarLibro(libro2)
+//biblioteca.agregarLibro(libro3) 
 
 //// MARK: Ejercicio 9 – Enum Nivel y Clase VideoJuego
 //Declara un enum Nivel con casos .facil, .medio, .dificil.
