@@ -357,7 +357,81 @@ printTable(department)
 //// Output:
 //// Tablet: 499.99
 //// Smartphone: 699.99
+
+
+
 //// Laptop: 999.99
+
+
+
+func printTable(_ dataSource: TabularDataSource) {
+    var headerRow = "|"
+    var columnWidths = [Int]()
+    
+    for columnIndex in 0..<dataSource.numberOfColumns {
+        let columnLabel = dataSource.label(forColumn: columnIndex)
+        let columnHeader = " \(columnLabel) |"
+        headerRow += columnHeader
+        columnWidths.append(columnHeader.count)
+    }
+    
+    print(headerRow)
+    
+    for rowIndex in 0..<dataSource.numberOfRow {
+        var output = "|"
+        for rowColumnIndex in 0..<dataSource.numberOfColumns {
+            let item = dataSource.itemForRow(row: rowIndex, column: rowColumnIndex)
+            let paddingNeeded = columnWidths[rowColumnIndex] - item.count - 2
+            let safePadding = max(0, paddingNeeded) // <- evita negativos
+            let padding = String(repeating: " ", count: safePadding)
+            output += " \(item)\(padding)|"
+        }
+        print(output)
+    }
+}
+
+struct Book {
+    let title: String
+    let author: String
+    let averageReviews: Double
+}
+
+struct BookCollection: TabularDataSource {
+    let name: String
+    private(set) var books: [Book] = []
+    
+    init(name: String) { self.name = name }
+    mutating func add(_ book: Book) { books.append(book) }
+    
+    var numberOfRow: Int { books.count }
+    var numberOfColumns: Int { 3 }
+    
+    func label(forColumn column: Int) -> String {
+        switch column {
+        case 0: return "Title"
+        case 1: return "Author"
+        case 2: return "Average Reviews"
+        default: fatalError("BookCollection has 3 columns")
+        }
+    }
+    
+    func itemForRow(row: Int, column: Int) -> String {
+        let book = books[row]
+        switch column {
+        case 0: return book.title
+        case 1: return book.author
+        case 2: return String(format: "%.1f", book.averageReviews)
+        default: fatalError("Invalid row/column")
+        }
+    }
+}
+
+// Ejemplo rápido
+var collection = BookCollection(name: "My Books")
+collection.add(Book(title: "Clean Code", author: "Robert C. Martin", averageReviews: 4.5))
+collection.add(Book(title: "The Pragmatic Programmer", author: "Andrew Hunt", averageReviews: 4.6))
+// printTable(collection)            // versión mínima
+// printAlignedTable(collection)     // versión alineada
 //```
 //
 //### Sixth Challenge (optional)
