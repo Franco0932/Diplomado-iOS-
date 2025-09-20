@@ -80,38 +80,76 @@ struct Department: TabularDataSource {
     }
 }
 
+
+
 var department = Department(name: "Engineering")
 department.add(Person(name: "Eva", age: 1000, yearsOfExperience: 6))
 department.add(Person(name: "Salem", age: 40, yearsOfExperience: 8))
 department.add(Person(name: "Andres", age: 50, yearsOfExperience: 10))
 
+//func printTable(_ dataSource: TabularDataSource) {
+//    var headerRow = "|"
+//    var columnWidths = [Int]()
+//    
+//    for columnIndex in 0..<dataSource.numberOfColumns {
+//        let columnLabel = dataSource.label(forColumn: columnIndex)
+//        let columnHeader = " \(columnLabel) |"
+//        headerRow += columnHeader
+//        columnWidths.append(columnHeader.count)
+//    }
+//    
+//    print(headerRow)
+//    
+//    for rowIndex in 0..<dataSource.numberOfRow {
+//        var output = "|"
+//        for rowColumnIndex in 0..<dataSource.numberOfColumns {
+//            let item = dataSource.itemForRow(row: rowIndex, column: rowColumnIndex)
+//            let paddingNeeded = columnWidths[rowColumnIndex] - item.count - 2
+//            let safePadding = max(0, paddingNeeded)
+//            let padding = String(repeating: " ", count: safePadding)
+//            output += " \(item)\(padding)|"
+//        }
+//        print(output)
+//    }
+//}
+
 func printTable(_ dataSource: TabularDataSource) {
     var headerRow = "|"
     var columnWidths = [Int]()
+
+    for columnIndex in 0..<dataSource.numberOfColumns {
+        var maxWidth = dataSource.label(forColumn: columnIndex).count
+        for rowIndex in 0..<dataSource.numberOfRow {
+            let item = dataSource.itemForRow(row: rowIndex, column: columnIndex)
+            maxWidth = max(maxWidth, item.count)
+        }
+        columnWidths.append(maxWidth)
+    }
     
     for columnIndex in 0..<dataSource.numberOfColumns {
-        let columnLabel = dataSource.label(forColumn: columnIndex)
-        let columnHeader = " \(columnLabel) |"
-        headerRow += columnHeader
-        columnWidths.append(columnHeader.count)
+        let label = dataSource.label(forColumn: columnIndex)
+        let padding = String(repeating: " ", count: columnWidths[columnIndex] - label.count)
+        headerRow += " \(label)\(padding) |"
     }
     
     print(headerRow)
-    
+
+
     for rowIndex in 0..<dataSource.numberOfRow {
-        var output = "|"
-        for rowColumnIndex in 0..<dataSource.numberOfColumns {
-            let item = dataSource.itemForRow(row: rowIndex, column: rowColumnIndex)
-            let paddingNeeded = columnWidths[rowColumnIndex] - item.count - 2
-            let safePadding = max(0, paddingNeeded)
-            let padding = String(repeating: " ", count: safePadding)
-            output += " \(item)\(padding)|"
+        var row = "|"
+        for columnIndex in 0..<dataSource.numberOfColumns {
+            let item = dataSource.itemForRow(row: rowIndex, column: columnIndex)
+            let padding = String(repeating: " ", count: columnWidths[columnIndex] - item.count)
+            row += " \(item)\(padding) |"
         }
-        print(output)
+        print(row)
     }
 }
 
+
 printTable(department)
+print("----------------------------------------------\n")
+
 
 //
 //### Second Challenge
@@ -142,7 +180,7 @@ struct BookCollection: TabularDataSource {
         case 0: return "Title"
         case 1: return "Author"
         case 2: return "Average Reviews"
-        default: fatalError("BookCollection has 3 columns")
+        default: fatalError("The Book Collection should only have 3 columns")
         }
     }
     
@@ -160,9 +198,11 @@ struct BookCollection: TabularDataSource {
 var collection = BookCollection(name:"Library")
 collection.add(Book(title: "It", author: "Stephen King", averageReviews: 4.5))
 collection.add(Book(title: "Harry Potter", author: "J.K. Rowling", averageReviews: 4.7))
-collection.add(Book(title: "La Divina Comedia", author: "Dante Alighieri", averageReviews: 4.0))
+collection.add(Book(title: "La Divina Comedia", author: "Dante Alighieri", averageReviews: 4.2))
 
 printTable(collection)
+
+print("-------------------------------------------------------\n")
 
 //### Third Challenge (optional)
 //After you fixed the crashing bug in the first challenge, the table rows and columns were likely misaligned.
@@ -172,38 +212,77 @@ printTable(collection)
 //
 
 
+
 //## Extension Challenges
 //
 //### First Challenge
 //You made the `Department` type conform to the `CustomStringConvertible` protocol. Refactor your playground from that chapter to move `CustomStringConvertible` conformance into an extension.
 //
-//
+
+
+extension Department: CustomStringConvertible {
+    var description: String {
+        return "Department -  name: \(name) - people: \(people.count)"
+    }
+}
+
+print(department,"\n")
+
+//extension Department: CustomStringConvertible {
+//    var description: String {
+//        var result = "Department: \(name)\n"
+//        result += "People (\(people.count)):\n"
+//        for person in people {
+//            result += "- \(person.name), age: \(person.age), experience: \(person.yearsOfExperience) years\n"
+//        }
+//        return result
+//    }
+//}
+
+
 //### Second Challenge
 //Extend the `Array` type to add a method `secondElement()` that returns the second element of the array if it exists, or `nil` if the array has fewer than two elements. Additionally, add a computed property `isNotEmpty` that returns `true` if the array is not empty, and `false` otherwise.
 //
 //```swift
 //// usage example
-//let numbers = [1, 2, 3, 4]
-//if let second = numbers.secondElement() {
-//    print("The second element is \(second)")
-//} else {
-//    print("The array does not have a second element")
-//}
+let numbers = [1, 2, 3, 4]
+if let second = numbers.secondElement() {
+    print("The second element is \(second)")
+} else {
+    print("The array does not have a second element")
+}
 //// The second element is 2
 //
-//let emptyArray: [Int] = []
-//print("Is the array not empty? \(emptyArray.isNotEmpty)")
+let emptyArray: [Int] = []
+print("Is the array not empty? \(emptyArray.isNotEmpty)\n")
 //// Is the array not empty? false
 //```
-//
+
+extension Array {
+    func secondElement() -> Element? {
+        count >= 2 ? self[1] : nil
+    }
+    var isNotEmpty: Bool { !isEmpty }
+}
+
 //### Third Challenge
 //Give the `Int` type a nested `enum` with cases **even** and **odd**.
 //Also give `Int` a property of that type to correctly report whether an integer is even or odd.
 //
 //```swift
-//let myInt = 2
-//print(myInt.evenOrOdd) // even
-//print(7.evenOrOdd) // odd
+let myInt = 2
+print(myInt.evenOrOdd) // even
+print(7.evenOrOdd, "\n") // odd
+
+//extension Int {
+//    enum ImpPar {
+//        case even
+//        case odd
+//    }
+//    var evenOrOdd: ImpPar { self % 2 == 0 ? .even : .odd }
+//}
+
+
 //```
 //
 //### Fourth Challenge (optional)
@@ -217,6 +296,25 @@ printTable(collection)
 //```
 //-----------------------------------------------------------------------------------------
 
+extension Int {
+    enum ImpPar {
+        case even
+        case odd
+    }
+
+    var evenOrOdd: ImpPar {
+        self % 2 == 0 ? .even : .odd
+    }
+}
+
+extension Int.ImpPar: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .even: return "Hey, I'm an even number"
+        case .odd: return "Hey, I'm an even number"
+        }
+    }
+}
 
 
 //
@@ -227,30 +325,42 @@ printTable(collection)
 //
 //```swift
 //// usage example
-//var myPair = Pair("Hello", 1)
-//
-//print(myPair) // Pair: Hello, 1
-//myPair.swap()
-//print(myPair) // Pair: 1, Hello
-//```
-//
+var myPair = Pair(first: "Hello", second: 1)
+
+print(myPair) // Pair: Hello, 1
+let swapped = myPair.swapped()
+print(swapped) // Pair: 1, Hello
+
+struct Pair<First, Second>: CustomStringConvertible {
+    var first: First
+    var second: Second
+
+    func swapped() -> Pair<Second, First> {
+        Pair<Second, First>(first: second, second: first)
+    }
+
+    var description: String { "Pair: \(first), \(second)" }
+}
+
+
 //### Second Challenge
 //Add a `filter(_:)` method to your `Stack` structure. It should take a single argument, a closure that takes an `Element` and returns a `Bool`, and return a new `Stack<Element>` that contains any elements for which the closure returns true.
 //
+
+
 //### Third Challenge
 //Write a generic function called `findAll(_:_:)` that takes an array of any type `T` that conforms to the `Equatable` protocol and a single element (also of type `T`).
 //`findAll(_:_:)` should return an array of integers corresponding to every location where the element was found in the array. For example, `findAll([5,3,7,3,9], 3)` should return `[1,3]` because the item 3 exists at indices 1 and 3 in the array. Try your function with both integers and strings.
 //
-//
+
+
+
 //### Fourth Challenge
 //Write an extension for the `Dictionary` type that adds a method `mapValuesToArray(_:)`. This method should take a closure that transforms the values of the dictionary and return an array of the transformed values.
 //```swift
 //// usage example
-//let dictionary = ["one": 1, "two": 2, "three": 3]
-//let stringValues = dictionary.mapValuesToArray { "\($0)" }
-//print(stringValues) // ["1", "2", "3"]
-//```
-//
+
+
 //### Fifth Challenge
 //Create a protocol `ComparableItem` that requires conforming types to implement a method `isSmallerThan(_ other: Self) -> Bool`. Then, create a generic function `sortedItems<T: ComparableItem>(_: [T]) -> [T]` that sorts an array of `ComparableItem` items using the `isSmallerThan` method.
 //```swift
@@ -280,10 +390,11 @@ printTable(collection)
 //for product in sortedProducts {
 //    print("\(product.name): \(product.price)")
 //}
-//// Output:
-//// Tablet: 499.99
-//// Smartphone: 699.99
-/////// Laptop: 999.99
+//}
+// Output:
+// Tablet: 499.99
+// Smartphone: 699.99
+// Laptop: 999.99
 //```
 //
 //### Sixth Challenge (optional)
