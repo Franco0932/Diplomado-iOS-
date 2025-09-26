@@ -1,0 +1,352 @@
+import Foundation
+
+// MARK: - Desafío 1: Operaciones Básicas
+
+/**
+ Enum para definir las operaciones posibles.
+ */
+enum Operation {
+    case addition
+    case subtraction
+    case multiplication
+    case division
+}
+
+/**
+ [span_0](start_span)Enum para manejar errores específicos de la operación, como la división por cero[span_0](end_span).
+ */
+enum OperationError: Error {
+    case divisionByZero
+}
+
+/**
+ [span_1](start_span)Aplica una operación a todos los números de un arreglo[span_1](end_span).
+ - Parameters:
+   - operation: El tipo de operación a realizar.
+   - numbers: Un arreglo de números `Double`.
+ - [span_2](start_span)Returns: El resultado de la operación[span_2](end_span).
+ - [span_3](start_span)Throws: `OperationError.divisionByZero` si se intenta dividir por cero[span_3](end_span).
+ */
+func performOperation(_ operation: Operation, numbers: [Double]) throws -> Double {
+    guard let first = numbers.first else {
+        return 0
+    }
+
+    let rest = numbers.dropFirst()
+
+    switch operation {
+    case .addition:
+        return rest.reduce(first, +)
+    case .subtraction:
+        return rest.reduce(first, -)
+    case .multiplication:
+        return rest.reduce(first, *)
+    case .division:
+        guard !rest.contains(0) else {
+            throw OperationError.divisionByZero
+        }
+        return rest.reduce(first, /)
+    }
+}
+
+
+// MARK: - Desafío 2: Contar Positivos, Negativos y Ceros
+
+/**
+ [span_4](start_span)Cuenta los números positivos, negativos y ceros en un arreglo y devuelve un diccionario con los conteos[span_4](end_span).
+ - Parameter numbers: Un arreglo de enteros.
+ - Returns: Un diccionario con los resultados.
+ */
+func checkNumbers(_ numbers: [Int]) -> [String: Int] {
+    var counts = ["positives": 0, "negatives": 0, "zeros": 0]
+
+    for number in numbers {
+        if number > 0 {
+            counts["positives"]! += 1
+        } else if number < 0 {
+            counts["negatives"]! += 1
+        } else {
+            counts["zeros"]! += 1
+        }
+    }
+    return counts
+}
+
+
+// MARK: - Desafío 3: Tabla de Multiplicar
+
+/**
+ [span_5](start_span)Crea la tabla de multiplicar para un número hasta un límite especificado[span_5](end_span).
+ - Parameters:
+   - number: El número para la tabla.
+   - limit: El límite hasta el cual multiplicar.
+ - [span_6](start_span)Returns: Un arreglo de Strings con la tabla de multiplicar formateada[span_6](end_span).
+ */
+func multiply(number: Int, limit: Int) -> [String] {
+    var table: [String] = []
+    for i in 1...limit {
+        let result = "\(number) x \(i) = \(number * i)"
+        table.append(result)
+    }
+    return table
+}
+
+
+// MARK: - Desafío 4: Fortaleza de la Contraseña
+
+/**
+ [span_7](start_span)Enum para representar los niveles de fortaleza de la contraseña[span_7](end_span).
+ */
+enum PasswordStrength {
+    case weak
+    case medium
+    case strong
+}
+
+/**
+ [span_8](start_span)Verifica la fortaleza de una contraseña basándose en un conjunto de reglas[span_8](end_span).
+ - Parameter password: El `String` de la contraseña a verificar.
+ - Returns: Un valor del enum `PasswordStrength`.
+ */
+func checkPassword(_ password: String) -> PasswordStrength {
+    var score = 0
+
+    [span_9](start_span)// Reglas: Mínimo 6 caracteres, una mayúscula, un número y un símbolo especial[span_9](end_span).
+    if password.count >= 6 { score += 1 }
+    if password.contains(where: { $0.isUppercase }) { score += 1 }
+    if password.contains(where: { $0.isNumber }) { score += 1 }
+    let specialCharacters = CharacterSet(charactersIn: "!@#$%^&*.,")
+    if password.rangeOfCharacter(from: specialCharacters) != nil { score += 1 }
+
+    if score >= 4 {
+        return .strong
+    } else if score >= 2 {
+        return .medium
+    } else {
+        return .weak
+    }
+}
+
+
+// MARK: - Desafío 5: Filtrar Opcionales
+
+/**
+ [span_10](start_span)Filtra los valores `nil` de un arreglo de strings opcionales[span_10](end_span).
+ - Parameter optionals: Un arreglo de `[String?]`.
+ - Returns: Un nuevo arreglo de `[String]` con los valores no nulos. [span_11](start_span)Si todos son nulos, imprime un mensaje[span_11](end_span).
+ */
+func filterOptionals(from optionals: [String?]) -> [String] {
+    let nonNilValues = optionals.compactMap { $0 }
+
+    if nonNilValues.isEmpty {
+        [span_12](start_span)print("All values are empty")[span_12](end_span)
+    }
+    
+    return nonNilValues
+}
+
+
+// MARK: - Desafío 6: La Caja de Schrödinger
+
+/**
+ [span_13](start_span)Imprime un mensaje específico basado en el contenido de un `String` opcional[span_13](end_span).
+ - Parameter content: Un `String` opcional.
+ */
+func receiveBox(with content: String?) {
+    switch content {
+    case nil:
+        [span_14](start_span)print("It's empty! You ripped me off!")[span_14](end_span)
+    case "":
+        [span_15](start_span)print("Thanks for my cat Schrödinger!")[span_15](end_span)
+    default:
+        [span_16](start_span)print("This ain't a cat!")[span_16](end_span)
+    }
+}
+
+
+// MARK: - Desafío 7: Cuenta Bancaria
+
+/**
+ Estructura que simula una cuenta bancaria simple.
+ */
+struct BankAccount {
+    let owner: String
+    var balance: Double
+
+    [span_17](start_span)/// Aumenta el saldo de la cuenta[span_17](end_span).
+    mutating func deposit(amount: Double) {
+        if amount > 0 {
+            balance += amount
+        }
+    }
+
+    [span_18](start_span)/// Disminuye el saldo si hay fondos suficientes[span_18](end_span).
+    mutating func withdraw(amount: Double) {
+        if amount > 0 && balance >= amount {
+            balance -= amount
+        } else {
+            [span_19](start_span)print("Insufficient funds")[span_19](end_span)
+        }
+    }
+    
+    [span_20](start_span)/// Transfiere dinero a otra cuenta si hay fondos suficientes[span_20](end_span).
+    mutating func transfer(amount: Double, to otherAccount: inout BankAccount) {
+        if amount > 0 && balance >= amount {
+            balance -= amount
+            otherAccount.deposit(amount: amount)
+        } else {
+            [span_21](start_span)print("Insufficient funds")[span_21](end_span)
+        }
+    }
+}
+
+
+// MARK: - Desafío 8: Criba de Eratóstenes
+
+/**
+ Estructura para calcular números primos.
+ */
+struct PrimeCalculator {
+    /**
+     [span_22](start_span)[span_23](start_span)Calcula todos los números primos hasta un número máximo usando el algoritmo de la Criba de Eratóstenes[span_22](end_span)[span_23](end_span).
+     - [span_24](start_span)Parameter maxNumber: El límite superior para encontrar primos[span_24](end_span).
+     - [span_25](start_span)Returns: Un arreglo de enteros con los números primos[span_25](end_span).
+     */
+    static func calculate(upTo maxNumber: Int) -> [Int] {
+        guard maxNumber >= 2 else { return [] }
+
+        var isPrime = [Bool](repeating: true, count: maxNumber + 1)
+        isPrime[0] = false
+        isPrime[1] = false
+
+        for number in 2...Int(sqrt(Double(maxNumber))) {
+            if isPrime[number] {
+                for multiple in stride(from: number * number, through: maxNumber, by: number) {
+                    isPrime[multiple] = false
+                }
+            }
+        }
+        
+        let primes = (2...maxNumber).filter { isPrime[$0] }
+        return primes
+    }
+}
+
+
+// MARK: - Desafío 9: Diferencia de Edad
+
+/**
+ [span_26](start_span)Estructura para representar a una persona con nombre y edad[span_26](end_span).
+ */
+struct Person {
+    let name: String
+    let age: Int
+}
+
+/**
+ [span_27](start_span)Encuentra la edad mayor, la menor y la diferencia en un arreglo de personas[span_27](end_span).
+ - Parameter people: Un arreglo de objetos `Person`.
+ - Returns: Una tupla con `oldest`, `youngest` y `ageDifference`. Retorna `nil` si el arreglo está vacío.
+ */
+func findAgeDifference(for people: [Person]) -> (oldest: Int, youngest: Int, ageDifference: Int)? {
+    guard !people.isEmpty else { return nil }
+
+    let oldestPerson = people.max { $0.age < $1.age }!
+    let youngestPerson = people.min { $0.age < $1.age }!
+
+    let ageDifference = oldestPerson.age - youngestPerson.age
+
+    return (oldestPerson.age, youngestPerson.age, ageDifference)
+}
+
+
+// MARK: - Desafío 10: Concatenar Opcionales con Clausuras
+
+/**
+  Closure que toma un arreglo de strings opcionales, filtra los nulos y concatena
+  [span_28](start_span)los valores restantes en un solo string, usando `map`, `filter` y `reduce` (o equivalentes modernos)[span_28](end_span).
+*/
+let concatenateOptionals: ([String?]) -> String = { strings in
+    return strings
+        .compactMap { $0 } // Equivalente a filter y map para opcionales
+        .joined(separator: " ") // Manera moderna y eficiente de reducir a un String
+}
+
+
+// MARK: - Ejemplos de Uso
+
+print("----- Desafío 1 -----")
+do {
+    [span_29](start_span)print("Suma [1, 2, 3, 4]: \(try performOperation(.addition, numbers: [1, 2, 3, 4]))") // 10.0[span_29](end_span)
+    print("División [20, 5, 2]: \(try performOperation(.division, numbers: [20, 5, 2]))")
+    print("Intentando dividir por cero [20, 5, 0]:", terminator: " ")
+    try performOperation(.division, numbers: [20, 5, 0])
+} catch OperationError.divisionByZero {
+    [span_30](start_span)print("Error: división por cero.")[span_30](end_span)
+} catch {
+    print("Ocurrió un error inesperado.")
+}
+
+print("\n----- Desafío 2 -----")
+[span_31](start_span)print("Conteo de [-3, 0, 2, 5, -1]: \(checkNumbers([-3, 0, 2, 5, -1]))")[span_31](end_span)
+
+
+print("\n----- Desafío 3 -----")
+print("Tabla del 7 hasta el 12:")
+[span_32](start_span)let multiplicationTable = multiply(number: 7, limit: 12)[span_32](end_span)
+multiplicationTable.forEach { print($0) }
+
+
+print("\n----- Desafío 4 -----")
+[span_33](start_span)print("Fortaleza de 'Pass123.': \(checkPassword("Pass123."))")[span_33](end_span)
+[span_34](start_span)print("Fortaleza de 'Strong#Pass1.': \(checkPassword("Strong#Pass1."))")[span_34](end_span)
+print("Fortaleza de 'weak': \(checkPassword("weak"))")
+
+
+print("\n----- Desafío 5 -----")
+let texts: [String?] = ["Hello", nil, "World"]
+[span_35](start_span)print("Filtrando [\"Hello\", nil, \"World\"]: \(filterOptionals(from: texts))")[span_35](end_span)
+let allNil: [String?] = [nil, nil, nil]
+print("Filtrando [nil, nil, nil]: \(filterOptionals(from: allNil))")
+
+
+print("\n----- Desafío 6 -----")
+print("Caja con \"\": ", terminator: "")
+[span_36](start_span)receiveBox(with: "")[span_36](end_span)
+print("Caja con nil: ", terminator: "")
+[span_37](start_span)receiveBox(with: nil)[span_37](end_span)
+print("Caja con \"lol\": ", terminator: "")
+[span_38](start_span)receiveBox(with: "lol")[span_38](end_span)
+
+
+print("\n----- Desafío 7 -----")
+var account1 = BankAccount(owner: "Alice", balance: 1000)
+var account2 = BankAccount(owner: "Bob", balance: 500)
+print("Estado inicial: Alice $\(account1.balance), Bob $\(account2.balance)")
+account1.withdraw(amount: 200)
+print("Alice después de retirar 200: $\(account1.balance)")
+account1.transfer(amount: 300, to: &account2)
+[span_39](start_span)print("Estado final: Alice $\(account1.balance), Bob $\(account2.balance)")[span_39](end_span)
+
+
+print("\n----- Desafío 8 -----")
+print("Primos hasta 10: \(PrimeCalculator.calculate(upTo: 10))")
+[span_40](start_span)print("Primos hasta 50: \(PrimeCalculator.calculate(upTo: 50))")[span_40](end_span)
+print("Primos hasta 85: \(PrimeCalculator.calculate(upTo: 85))")
+
+
+print("\n----- Desafío 9 -----")
+let son = Person(name: "Juan", age: 19)
+let daughter = Person(name: "Maria", age: 12)
+let mother = Person(name: "Benita", age: 60)
+let father = Person(name: "Camilo", age: 58)
+let family = [daughter, son, mother, father]
+if let difference = findAgeDifference(for: family) {
+    print("Diferencia de edad en la familia: \(difference)")
+}
+
+
+print("\n----- Desafío 10 -----")
+let someStrings: [String?] = ["This", "is", nil, "not", nil, "a", "drill", nil, "!"]
+let resultString = concatenateOptionals(someStrings)
+[span_41](start_span)print("Strings concatenados: \"\(resultString)\"")[span_41](end_span)
