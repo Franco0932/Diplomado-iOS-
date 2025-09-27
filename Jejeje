@@ -1,3 +1,22 @@
+
+func filterOptionalsWithoutMap(from optionals: [String?]) -> [String] {
+    var nonNilValues: [String] = []
+
+    for item in optionals {
+        if let unwrappedString = item {
+            nonNilValues.append(unwrappedString)
+        }
+    }
+
+    if nonNilValues.isEmpty {
+        print("All values are empty")
+    }
+
+    return nonNilValues
+}
+
+
+
 import Foundation
 
 // MARK: - Desafío 1: Operaciones Básicas
