@@ -23,17 +23,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         picsButton.setImage(UIImage(systemName: imageType.isOn ? "dog.fill" : "cat.fill"), for: .normal)
+        customTextFields.isEditable = captionSwitch.isOn
         
     }
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let feedViewController = segue.destination as? FeedViewController{
-            feedViewController.pictureType = imageType.isOn ? .dog : .cat
-            feedViewController.showCaption = captionSwitch.isOn
-            customTextFields.isEditable = captionSwitch.isOn
         }else if segue.identifier == "HomeInformationSegue", let informationViewController = segue.destination as? InformationViewController {
             
             if captionTextSwitch.isOn {
@@ -53,15 +50,25 @@ class HomeViewController: UIViewController {
     @IBAction func informationButtonTapped(_ sender: Any){
         if captionTextSwitch.isOn{
             if customTextFields.text != "" {
-                performSegue(withIdentifier: "HomeInformationSegue", sender: nil)
+                navigateToInformationViewController()
+                //performSegue(withIdentifier: "HomeInformationSegue", sender: nil)
             }else{
                 let alertController = UIAlertController(title: nil, message: "Add Custom Text", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
                 present(alertController, animated: true)
+                return
             }
         }else{
-            performSegue(withIdentifier: "HomeInformationSegue", sender: nil)
+            navigateToInformationViewController()
         }
+    }
+    
+    private func navigateToInformationViewController(){
+        guard let infoViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InformationViewController") as? InformationViewController else { return }
+        if captionTextSwitch.isOn {
+            infoViewController.informationText = customTextFields.text
+        }
+        present(infoViewController, animated: true)
     }
     
     @IBAction func imageTypeSwitchValueChanged(_ sender: UISwitch){
@@ -70,6 +77,13 @@ class HomeViewController: UIViewController {
     
     @IBAction func captionTypeSwitchValueChanged(_ sender: UISwitch){
         customTextFields.isEditable = sender.isOn
+    }
+    
+    @IBAction func picsButton(_ sender: UIButton){
+        guard let feedViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController else { return }
+        feedViewController.pictureType = imageType.isOn ? .dog : .cat
+        feedViewController.showCaption = captionSwitch.isOn
+        navigationController?.pushViewController(feedViewController, animated: true)
     }
 
 }
