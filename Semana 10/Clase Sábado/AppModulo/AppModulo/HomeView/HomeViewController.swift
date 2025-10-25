@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         picsButton.setImage(UIImage(systemName: imageType.isOn ? "dog.fill" : "cat.fill"), for: .normal)
         customTextFields.isEditable = captionSwitch.isOn
+        setBarButtonItemGroup()
         
     }
     
@@ -43,9 +44,9 @@ class HomeViewController: UIViewController {
         
     }
     
-    @IBAction func logOutButtonTapped(_ sender: Any){
-        self.navigationController?.dismiss(animated: true)
-    }
+//    @IBAction func logOutButtonTapped(_ sender: Any){
+//        self.navigationController?.dismiss(animated: true)
+//    }
     
     @IBAction func informationButtonTapped(_ sender: Any){
         if captionTextSwitch.isOn{
@@ -63,8 +64,18 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private func setBarButtonItemGroup(){
+        let logoutbutton = UIBarButtonItem(title: "Log Out", image: UIImage(systemName: "multiply.circle.fill"), target: self, action: #selector(logout))
+        let informationbutton = UIBarButtonItem(title: "Information", image: UIImage(systemName: "info.circle.fill"), target: self, action: #selector(informationButtonTapped))
+        navigationItem.centerItemGroups = [UIBarButtonItemGroup.fixedGroup(items: [logoutbutton, informationbutton])]
+    }
+    
+    @objc private func logout(){
+        navigationController?.dismiss(animated: true)
+    }
+    
     private func navigateToInformationViewController(){
-        guard let infoViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InformationViewController") as? InformationViewController else { return }
+        let infoViewController = InformationViewController(nibName: nil, bundle: nil)
         if captionTextSwitch.isOn {
             infoViewController.informationText = customTextFields.text
         }
@@ -80,7 +91,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func picsButton(_ sender: UIButton){
-        guard let feedViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FeedViewController") as? FeedViewController else { return }
+        let feedViewController = FeedViewController(nibName: nil, bundle: nil)
         feedViewController.pictureType = imageType.isOn ? .dog : .cat
         feedViewController.showCaption = captionSwitch.isOn
         navigationController?.pushViewController(feedViewController, animated: true)
