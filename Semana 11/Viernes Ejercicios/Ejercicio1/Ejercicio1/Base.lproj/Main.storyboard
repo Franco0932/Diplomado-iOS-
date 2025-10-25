@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Ejercicio1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$100" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ynh-g0-1O5">
+                                <rect key="frame" x="130" y="277" width="60.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5X6-cL-7Ia">
+                                <rect key="frame" x="80" y="371" width="160" height="32"/>
+                                <segments>
+                                    <segment title="10%"/>
+                                    <segment title="15%"/>
+                                    <segment title="20%"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oO5-GN-KeJ">
+                                <rect key="frame" x="86" y="447" width="148.5" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Calcular Propina"/>
+                                <connections>
+                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="npe-69-WU9"/>
+                                    <segue destination="x6j-rH-ieN" kind="show" identifier="mostrarResultado" id="06U-uP-j7c"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculo de Propina" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0de-3M-iu1">
+                                <rect key="frame" x="24" y="110" width="272" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5X6-cL-7Ia" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="6Dn-b4-eO3"/>
+                            <constraint firstItem="0de-3M-iu1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="ETx-Ts-oJz"/>
+                            <constraint firstItem="5X6-cL-7Ia" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ib1-KJ-Jb3"/>
+                            <constraint firstItem="0de-3M-iu1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="N2N-Ck-tju"/>
+                            <constraint firstItem="Ynh-g0-1O5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NpI-Kg-AjH"/>
+                            <constraint firstItem="0de-3M-iu1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="Oim-cy-Lut"/>
+                            <constraint firstItem="oO5-GN-KeJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ScI-Le-hFP"/>
+                            <constraint firstItem="oO5-GN-KeJ" firstAttribute="top" secondItem="5X6-cL-7Ia" secondAttribute="bottom" constant="45" id="TAS-Qd-oAV"/>
+                            <constraint firstItem="Ynh-g0-1O5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.189062" id="TN0-Aq-REY"/>
+                            <constraint firstItem="5X6-cL-7Ia" firstAttribute="top" secondItem="Ynh-g0-1O5" secondAttribute="bottom" constant="60" id="sU7-ab-mVa"/>
+                            <constraint firstItem="oO5-GN-KeJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.464062" id="xGW-ys-rmx"/>
+                            <constraint firstItem="Ynh-g0-1O5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xls-qR-t2g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="billAmountTextField" destination="Ynh-g0-1O5" id="h2F-1L-8Ux"/>
+                        <outlet property="calculateButton" destination="oO5-GN-KeJ" id="xNu-Ec-bXd"/>
+                        <outlet property="tipPercentageSegmentedControl" destination="5X6-cL-7Ia" id="a6c-pw-RZg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221" y="-2"/>
+        </scene>
+        <!--Tip Total View Controller-->
+        <scene sceneID="Qt1-mB-9f9">
+            <objects>
+                <viewController id="x6j-rH-ieN" customClass="TipTotalViewController" customModule="Ejercicio1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i9r-IH-NU1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZU-if-oTG">
+                                <rect key="frame" x="86" y="256" width="148" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="U0a-QM-zR0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eZU-if-oTG" firstAttribute="centerX" secondItem="U0a-QM-zR0" secondAttribute="centerX" id="72s-ez-xMh"/>
+                            <constraint firstItem="eZU-if-oTG" firstAttribute="centerY" secondItem="U0a-QM-zR0" secondAttribute="centerY" id="Mj4-Ot-jfS"/>
+                            <constraint firstItem="eZU-if-oTG" firstAttribute="leading" secondItem="U0a-QM-zR0" secondAttribute="leading" constant="86" id="lK8-3f-gP4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="G8e-y3-ZbN"/>
+                    <connections>
+                        <outlet property="resultLabel" destination="eZU-if-oTG" id="ctQ-fX-qeF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDH-mq-eTb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942.74809160305335" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
