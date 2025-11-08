@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectItemViewController" customModule="Ejercicio2" customModuleProvider="target">
+            <connections>
+                <outlet property="goToShoppingButton" destination="EgV-xJ-lQ6" id="wSO-gb-Qwr"/>
+                <outlet property="view" destination="KLi-vg-e86" id="3yI-OF-WYV"/>
+                <outletCollection property="productButtons" destination="wqg-bB-cVw" collectionClass="NSMutableArray" id="NY1-zV-eEl"/>
+                <outletCollection property="productButtons" destination="Ezl-Ie-g19" collectionClass="NSMutableArray" id="0dL-Q2-KSf"/>
+                <outletCollection property="productButtons" destination="rrx-k4-1Bk" collectionClass="NSMutableArray" id="cuH-x6-bZ7"/>
+                <outletCollection property="productButtons" destination="aXj-2e-8H1" collectionClass="NSMutableArray" id="uGj-tE-gCV"/>
+                <outletCollection property="productButtons" destination="gpp-tc-rrG" collectionClass="NSMutableArray" id="TGd-ms-AHh"/>
+                <outletCollection property="productButtons" destination="Mtp-cH-Sgt" collectionClass="NSMutableArray" id="ydr-Ke-CEN"/>
+                <outletCollection property="productButtons" destination="Rj2-te-GQ1" collectionClass="NSMutableArray" id="FI4-PL-wN1"/>
+                <outletCollection property="productButtons" destination="mOS-WJ-Rik" collectionClass="NSMutableArray" id="IfA-s6-bsg"/>
+                <outletCollection property="productButtons" destination="Sgy-D7-QDa" collectionClass="NSMutableArray" id="CM7-xm-EDe"/>
+                <outletCollection property="productButtons" destination="ppp-UH-Iql" collectionClass="NSMutableArray" id="ijF-VQ-IFD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KLi-vg-e86">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqg-bB-cVw">
+                    <rect key="frame" x="20" y="74" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Zeo-lr-ByX"/>
+                        <constraint firstAttribute="width" constant="70" id="xLt-e7-S3H"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="apple.logo" catalog="system"/>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrx-k4-1Bk">
+                    <rect key="frame" x="308" y="79" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="Dwf-JQ-iKb"/>
+                        <constraint firstAttribute="height" constant="80" id="qh1-El-iG7"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="icons8-pan-48">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXj-2e-8H1">
+                    <rect key="frame" x="15" y="174" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="2Qz-Hr-ph8"/>
+                        <constraint firstAttribute="height" constant="80" id="vBd-rI-AjT"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="carrot.fill" catalog="system"/>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpp-tc-rrG">
+                    <rect key="frame" x="161.66666666666666" y="184" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="2kO-hH-1QN"/>
+                        <constraint firstAttribute="height" constant="80" id="Qat-Jy-Vx3"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="icons8-queso-48"/>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtp-cH-Sgt">
+                    <rect key="frame" x="308" y="179" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="C3C-N5-bfj"/>
+                        <constraint firstAttribute="width" constant="70" id="OD7-OL-v3X"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="icons8-cola-48"/>
+                </button>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj2-te-GQ1">
+                    <rect key="frame" x="15" y="274" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="D2i-UH-x7v"/>
+                        <constraint firstAttribute="height" constant="80" id="t7I-MY-HOh"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="icons8-huevos-48"/>
+                </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOS-WJ-Rik">
+                    <rect key="frame" x="161.66666666666666" y="294" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="8pR-UB-fqZ"/>
+                        <constraint firstAttribute="width" constant="70" id="gmH-S5-U9H"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="icons8-plátano-48"/>
+                </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgy-D7-QDa">
+                    <rect key="frame" x="308" y="279" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="7df-p2-sLZ"/>
+                        <constraint firstAttribute="width" constant="70" id="MqF-cj-G4C"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="icons8-salchichas-48"/>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezl-Ie-g19">
+                    <rect key="frame" x="161.66666666666666" y="74" width="70" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="CUZ-ht-Svg"/>
+                        <constraint firstAttribute="width" constant="70" id="N4V-6P-RRA"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="waterbottle.fill" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgV-xJ-lQ6">
+                    <rect key="frame" x="114.66666666666669" y="764" width="164" height="34"/>
+                    <color key="tintColor" systemColor="systemGreenColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Let’s Go Shopping"/>
+                    <connections>
+                        <action selector="goToShoppingButtonTapped:" destination="-1" eventType="touchUpInside" id="Lgm-DX-TT2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppp-UH-Iql">
+                    <rect key="frame" x="160.66666666666666" y="404" width="72" height="62"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="icons8-filete-48"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="i6s-2s-Thj"/>
+            <color key="backgroundColor" systemColor="systemBlueColor"/>
+            <constraints>
+                <constraint firstItem="ppp-UH-Iql" firstAttribute="top" secondItem="mOS-WJ-Rik" secondAttribute="bottom" constant="30" id="1jk-ld-frD"/>
+                <constraint firstItem="rrx-k4-1Bk" firstAttribute="top" secondItem="i6s-2s-Thj" secondAttribute="top" constant="20" id="93A-es-SNQ"/>
+                <constraint firstItem="wqg-bB-cVw" firstAttribute="top" secondItem="i6s-2s-Thj" secondAttribute="top" constant="15" id="BcF-c6-U7a"/>
+                <constraint firstItem="ppp-UH-Iql" firstAttribute="centerX" secondItem="KLi-vg-e86" secondAttribute="centerX" id="CQy-6P-rNH"/>
+                <constraint firstItem="Ezl-Ie-g19" firstAttribute="centerX" secondItem="KLi-vg-e86" secondAttribute="centerX" id="DTC-kW-7wS"/>
+                <constraint firstItem="i6s-2s-Thj" firstAttribute="trailing" secondItem="Sgy-D7-QDa" secondAttribute="trailing" constant="15" id="Ddz-hQ-OMw"/>
+                <constraint firstItem="aXj-2e-8H1" firstAttribute="top" secondItem="wqg-bB-cVw" secondAttribute="bottom" constant="20" id="Hwj-wA-K7y"/>
+                <constraint firstItem="mOS-WJ-Rik" firstAttribute="top" secondItem="gpp-tc-rrG" secondAttribute="bottom" constant="30" id="Lxj-Tq-OES"/>
+                <constraint firstItem="aXj-2e-8H1" firstAttribute="leading" secondItem="i6s-2s-Thj" secondAttribute="leading" constant="15" id="MXh-AU-rti"/>
+                <constraint firstItem="gpp-tc-rrG" firstAttribute="top" secondItem="Ezl-Ie-g19" secondAttribute="bottom" constant="30" id="PoC-86-Izf"/>
+                <constraint firstItem="mOS-WJ-Rik" firstAttribute="centerX" secondItem="KLi-vg-e86" secondAttribute="centerX" id="TEQ-jp-QXu"/>
+                <constraint firstItem="Rj2-te-GQ1" firstAttribute="top" secondItem="aXj-2e-8H1" secondAttribute="bottom" constant="20" id="VKC-xo-AMm"/>
+                <constraint firstItem="gpp-tc-rrG" firstAttribute="centerX" secondItem="KLi-vg-e86" secondAttribute="centerX" id="WCd-7s-bWk"/>
+                <constraint firstItem="Sgy-D7-QDa" firstAttribute="top" secondItem="Mtp-cH-Sgt" secondAttribute="bottom" constant="20" id="WDF-yg-Koo"/>
+                <constraint firstItem="Mtp-cH-Sgt" firstAttribute="top" secondItem="rrx-k4-1Bk" secondAttribute="bottom" constant="20" id="dqR-cJ-mZi"/>
+                <constraint firstItem="Ezl-Ie-g19" firstAttribute="top" secondItem="i6s-2s-Thj" secondAttribute="top" constant="15" id="ebz-jn-Y7k"/>
+                <constraint firstItem="i6s-2s-Thj" firstAttribute="trailing" secondItem="Mtp-cH-Sgt" secondAttribute="trailing" constant="15" id="hkS-QY-SQh"/>
+                <constraint firstItem="Rj2-te-GQ1" firstAttribute="leading" secondItem="i6s-2s-Thj" secondAttribute="leading" constant="15" id="jVt-nY-4QY"/>
+                <constraint firstItem="wqg-bB-cVw" firstAttribute="leading" secondItem="i6s-2s-Thj" secondAttribute="leading" constant="20" id="jcU-ND-quu"/>
+                <constraint firstItem="EgV-xJ-lQ6" firstAttribute="centerX" secondItem="KLi-vg-e86" secondAttribute="centerX" id="l9l-9p-jCf"/>
+                <constraint firstItem="i6s-2s-Thj" firstAttribute="trailing" secondItem="rrx-k4-1Bk" secondAttribute="trailing" constant="15" id="tMN-ta-cwn"/>
+                <constraint firstItem="i6s-2s-Thj" firstAttribute="bottom" secondItem="EgV-xJ-lQ6" secondAttribute="bottom" constant="20" id="xpr-Fe-6l4"/>
+            </constraints>
+            <point key="canvasLocation" x="64.885496183206101" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="apple.logo" catalog="system" width="105" height="128"/>
+        <image name="carrot.fill" catalog="system" width="128" height="122"/>
+        <image name="icons8-cola-48" width="48" height="48"/>
+        <image name="icons8-filete-48" width="48" height="48"/>
+        <image name="icons8-huevos-48" width="48" height="48"/>
+        <image name="icons8-pan-48" width="48" height="48"/>
+        <image name="icons8-plátano-48" width="48" height="48"/>
+        <image name="icons8-queso-48" width="48" height="48"/>
+        <image name="icons8-salchichas-48" width="48" height="48"/>
+        <image name="waterbottle.fill" catalog="system" width="78" height="128"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
