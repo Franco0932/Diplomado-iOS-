@@ -9,36 +9,44 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var imageType: UISwitch!
-    @IBOutlet weak var captionSwitch: UISwitch!
-    @IBOutlet weak var captionTextSwitch: UISwitch!
-    @IBOutlet weak var customTextFields: UITextView!{
-        didSet{
-            customTextFields.delegate = self
-        }
+//    @IBOutlet weak var imageType: UISwitch!
+//    @IBOutlet weak var captionSwitch: UISwitch!
+//    @IBOutlet weak var captionTextSwitch: UISwitch!
+//    @IBOutlet weak var customTextFields: UITextView!{
+//        didSet{
+//            customTextFields.delegate = self
+//        }
+//    }
+//    @IBOutlet weak var picsButton: UIButton!
+    
+    var customView: HomeView{
+        return view as! HomeView
     }
-    @IBOutlet weak var picsButton: UIButton!
+    
+    override func loadView() {
+        view = HomeView()
+    }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        picsButton.setImage(UIImage(systemName: imageType.isOn ? "dog.fill" : "cat.fill"), for: .normal)
-        customTextFields.isEditable = captionSwitch.isOn
+        customView.picsButton.setImage(UIImage(systemName: customView.imageType.isOn ? "dog.fill" : "cat.fill"), for: .normal)
+        customView.customTextField.isEditable = customView.captionSwitch.isOn
         setBarButtonItemGroup()
         
     }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let feedViewController = segue.destination as? FeedViewController{
-        }else if segue.identifier == "HomeInformationSegue", let informationViewController = segue.destination as? InformationViewController {
-            
-            if captionTextSwitch.isOn {
-                informationViewController.informationText = customTextFields.text
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination is FeedViewController{
+//        }else if segue.identifier == "HomeInformationSegue", let informationViewController = segue.destination as? InformationViewController {
+//            
+//            if customView.captionTextSwitch.isOn {
+//                informationViewController.informationText = customView.customTextField.text
+//            }
+//        }
+//    }
     
     @IBAction func picsButtonTapped(_ sender: Any){
         
@@ -49,8 +57,8 @@ class HomeViewController: UIViewController {
 //    }
     
     @IBAction func informationButtonTapped(_ sender: Any){
-        if captionTextSwitch.isOn{
-            if customTextFields.text != "" {
+        if customView.customTextSwitch.isOn{
+            if customView.customTextField.text != "" {
                 navigateToInformationViewController()
                 //performSegue(withIdentifier: "HomeInformationSegue", sender: nil)
             }else{
@@ -75,25 +83,25 @@ class HomeViewController: UIViewController {
     }
     
     private func navigateToInformationViewController(){
-        let infoViewController = InformationViewController(nibName: nil, bundle: nil)
-        if captionTextSwitch.isOn {
-            infoViewController.informationText = customTextFields.text
+        let infoViewController = InformationViewController()
+        if customView.customTextSwitch.isOn {
+            infoViewController.informationText = customView.customTextField.text
         }
         present(infoViewController, animated: true)
     }
     
     @IBAction func imageTypeSwitchValueChanged(_ sender: UISwitch){
-        picsButton.setImage(UIImage(systemName: imageType.isOn ? "dog.fill" : "cat.fill"), for: .normal)
+        customView.picsButton.setImage(UIImage(systemName: customView.imageType.isOn ? "dog.fill" : "cat.fill"), for: .normal)
     }
     
     @IBAction func captionTypeSwitchValueChanged(_ sender: UISwitch){
-        customTextFields.isEditable = sender.isOn
+        customView.customTextField.isEditable = sender.isOn
     }
     
     @IBAction func picsButton(_ sender: UIButton){
         let feedViewController = FeedViewController(nibName: nil, bundle: nil)
-        feedViewController.pictureType = imageType.isOn ? .dog : .cat
-        feedViewController.showCaption = captionSwitch.isOn
+        feedViewController.pictureType = customView.imageType.isOn ? .dog : .cat
+        feedViewController.showCaption = customView.captionSwitch.isOn
         navigationController?.pushViewController(feedViewController, animated: true)
     }
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Info View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewController" id="BYZ-38-t0r" customClass="InfoViewController" customModule="ProyectoModulo2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9nC-Lz-97b">
+                                <rect key="frame" x="0.0" y="50" width="320" height="518"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Cómo se juega:
+        Piedra: Un puño cerrado.
+        Papel: La mano abierta y plana.
+        Tijera: El dedo índice y el corazón extendidos formando una "V".
+        El juego: Al mismo tiempo, ambos jugadores dicen "piedra, papel o tijera" y, al final de la frase, muestran su gesto.
+        Por Rondas: El jugador que gane las rondas decididas al incio (1 a 5), gana el juego.
+        Por Puntos: El jugador que obtenga lo puntos para ganar decididos en la configuración gana la partida, pero esto depende de los puntos decididos que da cada victoria y los puntos que recibes al perder cada ronda. 
+        Empate: Si ambos jugadores muestran el mismo símbolo, el juego se repite, no suman rondas ni puntos. 
+    
+    
+    
+    
+    
+    Hecho por: Franco Ruiz Godoy</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Información y Reglas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-wp-F0x">
+                                <rect key="frame" x="43" y="21" width="234" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9nC-Lz-97b" secondAttribute="trailing" id="4AM-ux-1Ah"/>
+                            <constraint firstItem="9nC-Lz-97b" firstAttribute="top" secondItem="b7d-wp-F0x" secondAttribute="bottom" id="4hc-ST-JG5"/>
+                            <constraint firstItem="9nC-Lz-97b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PLp-Wx-jat"/>
+                            <constraint firstItem="9nC-Lz-97b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Xjm-sS-EIV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9nC-Lz-97b" secondAttribute="bottom" id="g2y-uY-gHj"/>
+                            <constraint firstItem="b7d-wp-F0x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ncB-eb-F0D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textViewInfo" destination="9nC-Lz-97b" id="XJR-b9-eOH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125.95419847328243" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
