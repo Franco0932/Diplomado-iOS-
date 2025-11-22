@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uWh-9M-hhP">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-nR-W0i">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jAn-B6-rWQ">
+                                    <size key="itemSize" width="349" height="299"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="SVb-5b-iVm" customClass="CustomCollectionViewCell" customModule="CollectionView" customModuleProvider="target">
+                                        <rect key="frame" x="22" y="0.0" width="349" height="299"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IM5-Xq-OZD">
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="299"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="car-CR-y6Y">
+                                                    <rect key="frame" x="8" y="16" width="333" height="228"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIh-7H-AkU">
+                                                    <rect key="frame" x="15.000000000000004" y="260" width="41.333333333333343" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="wPO-Ac-odG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hIh-7H-AkU" firstAttribute="top" secondItem="car-CR-y6Y" secondAttribute="bottom" constant="16" id="2ID-Hw-G7x"/>
+                                                <constraint firstItem="hIh-7H-AkU" firstAttribute="bottom" secondItem="IM5-Xq-OZD" secondAttribute="bottomMargin" id="9JC-ty-Gu3"/>
+                                                <constraint firstItem="car-CR-y6Y" firstAttribute="leading" secondItem="IM5-Xq-OZD" secondAttribute="leadingMargin" id="JiD-ke-tzD"/>
+                                                <constraint firstItem="car-CR-y6Y" firstAttribute="top" secondItem="IM5-Xq-OZD" secondAttribute="top" constant="16" id="kwO-FA-czw"/>
+                                                <constraint firstItem="hIh-7H-AkU" firstAttribute="leading" secondItem="IM5-Xq-OZD" secondAttribute="leading" constant="15" id="m8L-Bs-fQW"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hIh-7H-AkU" secondAttribute="trailing" constant="20" symbolic="YES" id="wWw-e3-mPC"/>
+                                                <constraint firstItem="car-CR-y6Y" firstAttribute="trailing" secondItem="IM5-Xq-OZD" secondAttribute="trailingMargin" id="zf8-0A-PPk"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="349" height="299"/>
+                                        <connections>
+                                            <outlet property="image" destination="car-CR-y6Y" id="wYW-9t-pp1"/>
+                                            <outlet property="tittle" destination="hIh-7H-AkU" id="anZ-xA-My9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xHT-nR-W0i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Awf-Hm-2SB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xHT-nR-W0i" secondAttribute="bottom" id="bhu-O0-gQV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xHT-nR-W0i" secondAttribute="trailing" id="h52-NW-HOA"/>
+                            <constraint firstItem="xHT-nR-W0i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vy6-W3-6XN"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Movies" image="movieclapper.fill" catalog="system" id="LQX-gO-HaN"/>
+                    <connections>
+                        <outlet property="collectionView" destination="xHT-nR-W0i" id="fh0-Zj-g4a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052.6717557251909" y="3.5211267605633805"/>
+        </scene>
+        <!--Others-->
+        <scene sceneID="Tv3-lx-ntF">
+            <objects>
+                <viewController id="ulA-Gn-9Q2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B0d-jN-Cps">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Jzj-9K-cET"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Others" image="moonphase.new.moon" catalog="system" id="icq-6u-CPf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RSQ-gs-gQx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1934" y="4"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hP0-ts-H5C">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uWh-9M-hhP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IS4-Og-QJE">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="pQp-Mf-pL2"/>
+                        <segue destination="ulA-Gn-9Q2" kind="relationship" relationship="viewControllers" id="t4f-qq-ms4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LBP-L7-i3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125.95419847328243" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="moonphase.new.moon" catalog="system" width="128" height="123"/>
+        <image name="movieclapper.fill" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
