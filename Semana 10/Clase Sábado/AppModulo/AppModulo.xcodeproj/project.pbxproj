@@ -6,7 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		523E6D6B2EDB78B8000C9D20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52F153612E9AB2C400EC12DD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52F153682E9AB2C400EC12DD;
+			remoteInfo = AppModulo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		523E6D672EDB78B7000C9D20 /* UserDTOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserDTOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F153692E9AB2C400EC12DD /* AppModulo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppModulo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -21,6 +32,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		523E6D682EDB78B8000C9D20 /* UserDTOTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UserDTOTests;
+			sourceTree = "<group>";
+		};
 		52F1536B2E9AB2C400EC12DD /* AppModulo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +48,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		523E6D642EDB78B7000C9D20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F153662E9AB2C400EC12DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				52F1536B2E9AB2C400EC12DD /* AppModulo */,
+				523E6D682EDB78B8000C9D20 /* UserDTOTests */,
 				52F1536A2E9AB2C400EC12DD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				52F153692E9AB2C400EC12DD /* AppModulo.app */,
+				523E6D672EDB78B7000C9D20 /* UserDTOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +86,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		523E6D662EDB78B7000C9D20 /* UserDTOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 523E6D6D2EDB78B8000C9D20 /* Build configuration list for PBXNativeTarget "UserDTOTests" */;
+			buildPhases = (
+				523E6D632EDB78B7000C9D20 /* Sources */,
+				523E6D642EDB78B7000C9D20 /* Frameworks */,
+				523E6D652EDB78B7000C9D20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				523E6D6C2EDB78B8000C9D20 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				523E6D682EDB78B8000C9D20 /* UserDTOTests */,
+			);
+			name = UserDTOTests;
+			packageProductDependencies = (
+			);
+			productName = UserDTOTests;
+			productReference = 523E6D672EDB78B7000C9D20 /* UserDTOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		52F153682E9AB2C400EC12DD /* AppModulo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52F1537C2E9AB2C700EC12DD /* Build configuration list for PBXNativeTarget "AppModulo" */;
@@ -93,6 +141,10 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					523E6D662EDB78B7000C9D20 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 52F153682E9AB2C400EC12DD;
+					};
 					52F153682E9AB2C400EC12DD = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -113,11 +165,19 @@
 			projectRoot = "";
 			targets = (
 				52F153682E9AB2C400EC12DD /* AppModulo */,
+				523E6D662EDB78B7000C9D20 /* UserDTOTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		523E6D652EDB78B7000C9D20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F153672E9AB2C400EC12DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +188,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		523E6D632EDB78B7000C9D20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52F153652E9AB2C400EC12DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +204,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		523E6D6C2EDB78B8000C9D20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52F153682E9AB2C400EC12DD /* AppModulo */;
+			targetProxy = 523E6D6B2EDB78B8000C9D20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		523E6D6E2EDB78B8000C9D20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diplomado-CSa.UserDTOTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppModulo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppModulo";
+			};
+			name = Debug;
+		};
+		523E6D6F2EDB78B8000C9D20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diplomado-CSa.UserDTOTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppModulo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppModulo";
+			};
+			name = Release;
+		};
 		52F1537D2E9AB2C700EC12DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -156,7 +267,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Diplomado-CSa.AppModulo";
+				PRODUCT_BUNDLE_IDENTIFIER = "Diplomado-CSa";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -182,7 +293,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Diplomado-CSa.AppModulo";
+				PRODUCT_BUNDLE_IDENTIFIER = "Diplomado-CSa";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -312,6 +423,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		523E6D6D2EDB78B8000C9D20 /* Build configuration list for PBXNativeTarget "UserDTOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				523E6D6E2EDB78B8000C9D20 /* Debug */,
+				523E6D6F2EDB78B8000C9D20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		52F153642E9AB2C400EC12DD /* Build configuration list for PBXProject "AppModulo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
