@@ -55,7 +55,7 @@ class FollowerListVC: UIViewController {
     }
     
     func getFollowers() {
-        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+        apiGitHub.shared.getFollowers(for: username, page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let followers):
@@ -64,24 +64,22 @@ class FollowerListVC: UIViewController {
                     DispatchQueue.main.async { self.showEmptyState() }
                 }
                 DispatchQueue.main.async { self.collectionView.reloadData() }
+            
             case .failure(let error):
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Algo salió mal", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default))
-                    self.present(alert, animated: true)
-                }
+                self.presentAlert(title: "Error", message: error.rawValue)
             }
         }
     }
     
     @objc func addButtonTapped() {
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+        apiGitHub.shared.getUserInfo(for: username) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let user):
                 self.addUserToFavorites(user: user)
+            
             case .failure(let error):
-                self.presentAlert(title: "Algo salió mal", message: error.localizedDescription)
+                self.presentAlert(title: "Error", message: error.rawValue)
             }
         }
     }
@@ -89,15 +87,16 @@ class FollowerListVC: UIViewController {
     func addUserToFavorites(user: Follower) {
         PersistenceManager.updateWith(favorite: user, actionType: .add) { [weak self] error in
             guard let self = self else { return }
+            
             if let error = error {
-                self.presentAlert(title: "Error", message: error.localizedDescription)
+                self.presentAlert(title: "Error", message: error.rawValue)
                 return
             }
-            self.presentAlert(title: "Saved", message: "Has guardado al usuario en favoritos")
+            
+            self.presentAlert(title: "Usuario Guardado", message: "Has guardado al usuario en favoritos")
         }
     }
     
-    // Helper para alertas simples
     func presentAlert(title: String, message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

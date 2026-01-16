@@ -66,7 +66,7 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
         var content = cell.defaultContentConfiguration()
         content.text = favorite.login
         content.secondaryText = "Toca para ver seguidores"
-        NetworkManager.shared.downloadImage(from: favorite.avatarUrl) { image in
+        apiGitHub.shared.downloadImage(from: favorite.avatarUrl) { image in
             DispatchQueue.main.async {
                 if let updateCell = tableView.cellForRow(at: indexPath) {
                     var newContent = updateCell.defaultContentConfiguration()
