@@ -17,7 +17,7 @@ class FollowerCell: UICollectionViewCell {
         configure()
     }
     
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder: NSCoder) { fatalError("") }
     
     func set(follower: Follower) {
         usernameLabel.text = follower.login

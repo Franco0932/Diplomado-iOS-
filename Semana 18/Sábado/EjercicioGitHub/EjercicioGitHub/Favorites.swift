@@ -1,5 +1,5 @@
 //
-//  PersistenceManager.swift
+//  Favorites.swift
 //  EjercicioGitHub
 //
 //  Created by Franco Ruiz on 10/01/26.
@@ -11,7 +11,7 @@ enum PersistenceActionType {
     case add, remove
 }
 
-enum PersistenceManager {
+enum Favorites {
     
     static private let defaults = UserDefaults.standard
     enum Keys { static let favorites = "favorites" }

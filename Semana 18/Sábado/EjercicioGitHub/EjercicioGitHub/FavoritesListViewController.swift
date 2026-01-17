@@ -39,7 +39,7 @@ class FavoritesListVC: UIViewController {
     }
     
     func getFavorites() {
-        PersistenceManager.retrieveFavorites { [weak self] result in
+        Favorites.retrieveFavorites { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let favorites):
@@ -95,7 +95,7 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         let favoriteToRemove = favorites[indexPath.row]
-        PersistenceManager.updateWith(favorite: favoriteToRemove, actionType: .remove) { [weak self] error in
+        Favorites.updateWith(favorite: favoriteToRemove, actionType: .remove) { [weak self] error in
             guard let self = self else { return }
             guard error == nil else { return }
             self.favorites.remove(at: indexPath.row)

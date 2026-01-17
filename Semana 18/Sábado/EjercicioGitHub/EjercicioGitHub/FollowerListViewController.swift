@@ -85,7 +85,7 @@ class FollowerListVC: UIViewController {
     }
     
     func addUserToFavorites(user: Follower) {
-        PersistenceManager.updateWith(favorite: user, actionType: .add) { [weak self] error in
+        Favorites.updateWith(favorite: user, actionType: .add) { [weak self] error in
             guard let self = self else { return }
             
             if let error = error {
